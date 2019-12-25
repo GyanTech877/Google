@@ -24,7 +24,7 @@ When two people cross the bridge together (sharing the flashlight), they both wa
 Respond with a number which represents the number of minutes.
 */
 
-Answer:
+Answer:->
 
 1 goes with 2 and 1 comes back => 3 min
 5 goes with 10 and 2 comes back => 12 min
