@@ -1,0 +1,7 @@
+/*
+Consider a rectangular cake with a rectangular section (of any size or orientation) removed from it.
+Is it possible to divide the cake exactly in half with only one cut?
+*/
+
+Answer:-->
+It is always possible to cut from top to bottom going through centre.
