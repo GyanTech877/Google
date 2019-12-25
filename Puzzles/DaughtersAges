@@ -1,0 +1,25 @@
+Two MIT math grads bump into each other at Fairway on the upper west side. They haven’t seen each other in over 20 years.
+
+The first grad says to the second: “how have you been?”
+Second: “great! i got married and i have three daughters now”
+First: “really? how old are they?”
+Second: “well, the product of their ages is 72, and the sum of their ages is the same as the number on that building over there..”
+First: “right, ok.. oh wait.. hmm, i still don’t know”
+Second: “oh sorry, the oldest one just started to play the piano”
+First: “wonderful! my oldest is the same age!”
+How old are the daughters?
+Respond with daughter ages sorted in ascending order and concatenated together. No spaces.
+
+
+Answer:->
+
+Ages can be 
+2,2,8 =>  22
+2,4,9 =>  15
+2,12,3 => 17
+2,6,6 =>  14
+4,6,3 =>  13
+8,3,3 =>  14
+
+as we can see for two of them sum is 14. So after seeing building number as 14 the Second person cannot decide the answer.
+But as one daughter is oldest, so the answer is 8,3,3
