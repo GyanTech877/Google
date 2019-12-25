@@ -1,0 +1,26 @@
+/*
+There is a building of 100 floors
+
+If an egg drops from the Nth floor or above it will break. If it’s dropped from any floor below, it will not break. You’re given 2 eggs. Find N, while minimizing the number of drops for the worst case.
+
+These are very strong eggs, because they can be dropped multiple times without breaking as long as they are dropped from floors below their “threshold” floor, floor N. But once an egg is dropped from a floor above it’s threshold floor, it will break.
+
+Output the minimum number of drops required to figure out N.
+*/
+
+Answer:-->
+
+lets say minimum no of drops required are x.
+So first we went to x floor and drop the egg. 
+
+a) If it breaks then manually we try each floor from 1 to x-1, so that total drops required is still x.
+b) If it doesn't break we go to (x-1) floor up and drop it so that if it breaks we have x-2 chances and x-2 floors to try.
+
+Finally if we keep on going this way and egg doesn't break at each stage, we finally end up being trying the last one at 100 floor.
+
+x+(x-1)+(x-2)+...+1 = 100
+x(x+1)/2 = 100
+x = 13.something.
+
+So optimal value of x is 14. We can start from 14th floor and minimum no of drops will be also 14 in worst case.  
+
