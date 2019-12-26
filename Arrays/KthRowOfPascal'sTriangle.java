@@ -12,13 +12,14 @@ Return : [1,3,3,1]
 
 public class Solution {
     public ArrayList<Integer> getRow(int A) {
-           ArrayList<Integer>  result = new ArrayList<>();
-           if(A<0) return result;
-           for(int i=1;i<=A;i++){
-              for(int j = result.size()-2;j>=0;j--){
-                  result.set(j+1,result.get(j)+result.get(j+1));
-              }
-              result.add(1);
-           }
+        ArrayList<Integer> result = new ArrayList<>();
+        if(A<0) return result;
+        for(int i=0;i<=A;i++){
+            for(int j=result.size()-2;j>=0;j--){
+                result.set(j+1,result.get(j)+result.get(j+1));
+            }
+            result.add(1);
+        }
+        return result;
     }
 }
