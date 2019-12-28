@@ -26,15 +26,18 @@ f(6, 2) + f(6, 4) + f(6, 6) =
 
 public class Solution {
     public int hammingDistance(final List<Integer> A) {
-        int result = 0;
-        int mod = 1000000007;
-        for(int i=0;i<32;i++){
-            int count = 0;
-            for(int j=0;j<A.size();j++){
-                if((A.get(j) & (1<<i))==0) count++;
+        long sum=0;
+        long n=A.size();
+        int M = 1000000007;
+        for(long i=0;i<31;i++) {
+            long counter=0;
+            for(int j=0;j<n;j++) {
+                if(((long)A.get(j) & (long)(1<<i)) > 0) {
+                    counter++;
+                }
             }
-            result = (result + ((count * (A.size()-count))%mod * 2)%mod)%mod;
+            sum = (sum + counter * (n-counter))%M;
         }
-        return result;
+        return (int) (sum << 1)%M;
     }
 }
