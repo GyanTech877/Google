@@ -32,9 +32,9 @@ public class Solution {
 	}
   
   public int pow2(int x, int n, int d) {
-	    if(x==0) return 0;
-	    if(n==0) return 1;
-	    long result = 1;
+	if(x==0) return 0;
+	if(n==0) return 1;
+        long result = 1;
         long square = x;
         while(n != 0){
             if(n % 2 != 0)result = result *  square;
@@ -43,5 +43,5 @@ public class Solution {
             result = result % d;
         }
         return (int)(result+d)%d;
-	}
+    }
 }
