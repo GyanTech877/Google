@@ -11,8 +11,9 @@ Returned list : 1 -> 3 -> 4 -> 5
 class ListNode {
         public int val;
         public ListNode next;
-        ListNode(int x) { val = x; next = null; 
-      }
+        ListNode(int x) {
+                val = x; next = null; 
+        }
  }
 
 public class Solution {
