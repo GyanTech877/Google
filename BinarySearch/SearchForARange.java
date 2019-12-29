@@ -38,7 +38,6 @@ Output 2:
  */
  
  public class Solution {
-    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
     public int[] searchRange(final int[] A, int B) {
         int[] result = new int[]{-1,-1};
         if(A==null || A.length==0) return result;
