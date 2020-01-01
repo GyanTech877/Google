@@ -16,7 +16,7 @@ Solution[i] < Solution[j] iff Solution[i][0] < Solution[j][0] OR (Solution[i][0]
 */
 
 public class Solution {
-    public ArrayList<ArrayList<Integer>> fourSum(ArrayList<Integer> A, int B) {
+    public ArrayList<ArrayList<Integer>> fourSum1(ArrayList<Integer> A, int B) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
         Collections.sort(A);
         if(A==null || A.size() ==0) return result;
@@ -51,6 +51,37 @@ public class Solution {
                 result.addAll(temp);
                 while(i<A.size()-1 && A.get(i)==A.get(i+1)) i++;
             }
+        }
+        return result;
+    }
+     
+     public ArrayList<ArrayList<Integer>> fourSum2(ArrayList<Integer> A, int B) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        Collections.sort(A);
+        int n = A.size();
+        for(int i=0;i<n-3;i++){
+            for(int j=i+1;j<n-2;j++){
+                int k = j+1;
+                int l = n-1;
+                while(k<l){
+                    if((A.get(i)+A.get(j)+A.get(k)+A.get(l))==B){
+                        ArrayList<Integer> temp = new ArrayList<>();
+                        temp.add(A.get(i));
+                        temp.add(A.get(j));
+                        temp.add(A.get(k));
+                        temp.add(A.get(l));
+                        while(k<l && A.get(k)==A.get(k+1)) k++;
+                        while(k<l && A.get(l)==A.get(l-1)) l--;
+                        k++;
+                        l--;
+                        result.add(temp);
+                    }
+                    else if((A.get(i)+A.get(j)+A.get(k)+A.get(l))>B) l--;
+                    else k++;
+                }
+                while(j<n-2 && A.get(j)==A.get(j+1)) j++;
+            }
+            while(i<n-3 && A.get(i)==A.get(i+1)) i++;
         }
         return result;
     }
