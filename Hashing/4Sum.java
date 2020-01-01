@@ -56,33 +56,38 @@ public class Solution {
     }
      
      public ArrayList<ArrayList<Integer>> fourSum2(ArrayList<Integer> A, int B) {
-        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+         HashSet<ArrayList<Integer>> set = new HashSet<ArrayList<Integer>>();
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<ArrayList<Integer>>();
         Collections.sort(A);
-        int n = A.size();
-        for(int i=0;i<n-3;i++){
-            for(int j=i+1;j<n-2;j++){
-                int k = j+1;
-                int l = n-1;
-                while(k<l){
-                    if((A.get(i)+A.get(j)+A.get(k)+A.get(l))==B){
-                        ArrayList<Integer> temp = new ArrayList<>();
-                        temp.add(A.get(i));
-                        temp.add(A.get(j));
-                        temp.add(A.get(k));
-                        temp.add(A.get(l));
-                        while(k<l && A.get(k)==A.get(k+1)) k++;
-                        while(k<l && A.get(l)==A.get(l-1)) l--;
+        for(int i = 0; i < A.size(); i++){
+            for(int j = i+1; j < A.size(); j++){
+                int k =j+1;
+                int l = A.size()-1;
+                while(k < l){
+                    int sum = A.get(i) +A.get(j) + A.get(k) + A.get(l);
+                    if(sum > B){
+                        l--;
+                    }
+                    else if(sum < B){
+                        k++;
+                    }
+                    else if(sum == B){
+                        ArrayList<Integer> list = new ArrayList<Integer>();
+                        list.add(A.get(i));
+                        list.add(A.get(j));
+                        list.add(A.get(k));
+                        list.add(A.get(l));   
+                        if(!set.contains(list)){
+                            set.add(list);
+                            ans.add(list);
+                        }
                         k++;
                         l--;
-                        result.add(temp);
                     }
-                    else if((A.get(i)+A.get(j)+A.get(k)+A.get(l))>B) l--;
-                    else k++;
+                    
                 }
-                while(j<n-2 && A.get(j)==A.get(j+1)) j++;
             }
-            while(i<n-3 && A.get(i)==A.get(i+1)) i++;
         }
-        return result;
+        return ans;
     }
 }
