@@ -21,7 +21,8 @@ will result in
  */
  
 public class Solution {
-	public ListNode mergeKLists(ArrayList<ListNode> a) {
+	
+	public ListNode mergeKLists1(ArrayList<ListNode> a) {
 	    int j=a.size()-1;
 	    while(j!=0){
 	    int i=0;
@@ -66,5 +67,28 @@ public class Solution {
            tempRes=tempRes.next;
         }
 	    return res;
+	}
+	
+	public ListNode mergeKLists2(ArrayList<ListNode> a) {
+	    PriorityQueue<ListNode> minHeap = new PriorityQueue<>(
+	        new Comparator<ListNode>() {
+            @Override
+            public int compare(ListNode o1, ListNode o2) {
+                return o1.val-o2.val;
+            }
+        });
+        
+	    ListNode result = new ListNode(-1);
+	    ListNode tempRes= result;
+	    for(int i=0;i<a.size();i++){
+	        minHeap.offer(a.get(i));
+	    }
+	    while(!minHeap.isEmpty()){
+	        ListNode minNode = minHeap.poll();
+	        tempRes.next = new ListNode(minNode.val);
+	        tempRes = tempRes.next;
+	        if(minNode.next!=null) minHeap.offer(minNode.next);
+	    }
+	    return result.next;
 	}
 }
